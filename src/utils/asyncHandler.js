@@ -4,8 +4,8 @@
 
 //USED IN PRODUCTION.
 const asyncHandler = (requestHandler) => {
-  async (req, res, next) => {
-    Promise.resolve(await requestHandler(req, res, next)).catch((err) => {
+  return (req, res, next) => {
+    Promise.resolve(requestHandler(req, res, next)).catch((err) => {
       next(err);
     });
   };
