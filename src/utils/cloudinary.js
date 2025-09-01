@@ -17,7 +17,10 @@ const uploadOnCoudinary = async function (localFilePath) {
     });
 
     //FILE SUCCESFULLY UPLOADED
-    console.log("File is uploaded on cloudinary", response.url);
+    // console.log("File is uploaded on cloudinary", response.url);
+    console.log("localfilepath: ", localFilePath);
+    fs.unlinkSync(localFilePath);
+
     return response;
   } catch (error) {
     fs.unlinkSync(localFilePath); // REMOVE THE LOCALLY SAVED TEMP. FILE AS THE
