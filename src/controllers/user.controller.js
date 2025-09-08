@@ -151,8 +151,9 @@ const logoutUser = asyncHandler(async (req, res) => {
     req.user._id,
     {
       //update refresh token to undefined or remove it.
-      $set: {
-        refreshToken: undefined,
+      // make changes set refreshToken undefined to this...
+      $unset: {
+        refreshToken: 1,
       },
     },
 
